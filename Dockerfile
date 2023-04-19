@@ -1,6 +1,6 @@
 FROM bitnami/python:3.11.3 as base
 
-COPY ./../application /application
+COPY application /application
 
 USER 11111
 
