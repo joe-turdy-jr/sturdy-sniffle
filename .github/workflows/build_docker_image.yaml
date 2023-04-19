@@ -6,6 +6,11 @@ on:
   workflow_dispatch:
 
 jobs:
+  prebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get GITHUB_REF_NAME
+        run: echo "$GITHUB_REF_NAME"
   build:
     runs-on: ubuntu-latest
     steps:
