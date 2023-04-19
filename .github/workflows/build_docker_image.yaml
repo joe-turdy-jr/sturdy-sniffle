@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Get GITHUB_REF_NAME
         run: sed "s/\//_/" <<< $GITHUB_REF_NAME
+      - name: Get GITHUB_ACTOR
+        run: $GITHUB_ACTOR
   build:
     runs-on: ubuntu-latest
     steps:
