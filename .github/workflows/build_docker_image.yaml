@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get GITHUB_REF_NAME
-        run: echo "$GITHUB_REF_NAME"
+        run: sed "s/\//_/" <<< $GITHUB_REF_NAME
   build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag counter:$GITHUB_REF_NAME
+      run: docker build . --file Dockerfile --tag counter:$(sed "s/\//_/" <<< $GITHUB_REF_NAME)
