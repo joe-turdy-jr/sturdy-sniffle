@@ -11,4 +11,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag counter:$GITHUB_BASE_REF
+      run: docker build . --file Dockerfile --tag counter:$GITHUB_REF_NAME
