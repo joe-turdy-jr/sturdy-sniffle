@@ -14,14 +14,12 @@ jobs:
       - name: Get GITHUB_ACTOR
         run: echo "$GITHUB_ACTOR"
   build:
-    if: ${{ github.repository_owner == 'GlycineASoya' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag counter:$(sed "s/\//_/" <<< $GITHUB_REF_NAME)
   secret-test:
-    if: ${{ github.repository_owner == 'GlycineASoya' }}
     runs-on: ubuntu-latest
     steps:
     - name: Use secret of $GITHUB_REPOSITORY
